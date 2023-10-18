@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>function reverseWordsInSentence(sentence) {
+        // Split the input sentence into words based on spaces
+        const words = sentence.split(" ");
+    
+        // Create an array to store the reversed words
+        const reversedWords = [];
+    
+        // Reverse each word and add it to the reversedWords array
+        for (const word of words) {
+            // Reverse the word using split, reverse, and join
+            const reversedWord = word.split("").reverse().join("");
+            reversedWords.push(reversedWord);
+        }
+    
+        // Join the reversedWords array to form the reversed sentence
+        const reversedSentence = reversedWords.join(" ");
+    
+        return reversedSentence;
+    }
+    
+    const inputSentence = "Hello World JavaScript Programming";
+    const reversedSentence = reverseWordsInSentence(inputSentence);
+    
+    console.log("Original Sentence: " + inputSentence);
+    console.log("Reversed Sentence: " + reversedSentence);
+    </script>
+</head>
+<body>
+
+    
+</body>
+</html>

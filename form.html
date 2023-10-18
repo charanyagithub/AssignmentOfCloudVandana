@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        #form{
+           border:3pxsolid black;
+           position: absolute;
+           left: 450px;
+           background-color: white;
+           width: 600px;
+           height: 600px;
+           top: 100px;
+           border-radius: 20px;
+        }
+        body{
+            background-color: aqua;
+        }
+        #name{
+           
+        }
+        #margin{
+            margin: 100px;
+            margin-left: 150px;
+        }
+        button{
+            margin: 20px;
+            padding: 10px;
+            background-color: skyblue;
+            border-radius: 10px;
+        }
+        p{
+            position: absolute;
+            top: 700px;
+            left: 500px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Customer Survey Form</h1>
+    <div id="form"><div id="margin">
+    <form id="surveyForm">
+       <div id="name"> <label for="firstName">FirstName:</label>
+       
+        <td><input type="text" id="firstName" required><br><br>
+        <tr><td><label for="lastName">LastName:</label>
+        
+        <input type="text" id="lastName" required><br><br></div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required><br><br>
+        <label for="country">Country:</label>
+        <select id="country" required>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">Uk</option>
+        </select><br><br>
+        <label>Gender:</label><br>
+        <input type="checkbox" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label>
+        <input type="checkbox" id="female" name="gender" value="Female" required>
+        <label for="female">Female</label><br><br>
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br><br>
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" required><br><br>
+        <button type="button" id="resetButton" onclick="resetForm()">Reset</button>
+        <button type="button" id="submitButton" onclick="submitForm()">Submit</button>
+
+
+    </form>
+</div></div>
+<p >2018 customer survey form.All rights Reserved | Design by W3Layouts</p>
+    <script>
+        function resetForm(){
+            document.getElementById("surveyForm").reset();
+        }
+        function submitForm(){
+            var firstName=document.getElementById("firstName").value;
+            var lastName=document.getElementById("lastName").value;
+            var dob=document.getElementById("dob").value;
+            var country=document.getElementById("country").value;
+            var genderElements=document.querySelectorAll('input[name="gender"]:checked');
+            var gender=[];
+            genderElements.forEach(function(element){
+                gender.push(element.value);
+            });
+            var profession=document.getElementById("profession").value;
+            var email=document.getElementById("email").value;
+            var mobile=document.getElementById("mobile").value;
+            // Display a popup with the collected data
+            var popupMessage="FirstName:" +firstName+ "\n" +"LastName:" +lastName+ "\n" +"Date of Birth:" +dob+ "\n" +"Country:" +country+ "\n" +"Gender:" +gender.join(",") + "\n" +"Profession:" +profession+ "\n" +"Email:" +email+ "\n" +"MobileNumber:" +mobile;
+            alert(popupMessage);
+            //Reset the form after submitting
+            resetForm();
+        }
+    </script>
+    
+</body>
+</html>
